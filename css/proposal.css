@@ -1,0 +1,18 @@
+body {
+  background-color: white;
+}
+
+header {
+  text-align: center;
+}
+
+section {
+  margin-left: 100px;
+  margin-right: 75px;
+  line-height: 1.5;
+  background-color: rgb(245, 245, 245);
+  padding-top: 15px;
+  padding-left: 13px;
+  padding-right:13px;
+  border-radius: 15px;
+}
