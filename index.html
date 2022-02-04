@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <title>LFG</title>
   <link rel="stylesheet" href="css/home.css">
@@ -16,12 +17,15 @@
     <ul>
       <li><a href="">HOME</a></li>
       <li><a href="">GROUPS</a></li>
-      <li id="profile"><a href="">PROFILE</a></li>
+      <li id="profile"><a href="profile.html">PROFILE</a></li>
     </ul>
   </nav>
 
   <div id="searchbar">
-    <p class="search"> Search for the game you wish to play...</p>
+    <form>
+      <input type="text" placeholder="Search for games.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
   </div>
 
   <div id="groups">
