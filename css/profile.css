@@ -147,9 +147,3 @@ footer p:last-of-type {
         ;
     }
 }
-
-@media (max-width: 400px) {
-    .footer {
-        display: none;
-    }
-}
