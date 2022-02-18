@@ -149,7 +149,7 @@ button {
 }
 
 footer .container, label{
-  display: none;
+   visibility: hidden;
 }
 
 .games,
@@ -200,7 +200,11 @@ footer .container, label{
   .about, .games{
     margin-left: 0px;
   }
-
+  
+   footer .container {
+    visibility: visible;
+  }
+  
   footer {
     color: white;
     background-color: rgb(80, 80, 80);
