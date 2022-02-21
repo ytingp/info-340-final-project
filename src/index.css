@@ -1,0 +1,241 @@
+body{
+  background-color: #333;
+}
+
+body::after {
+  content: "";
+  background: url("../img/pattern1.svg");
+  height: 100vh;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(80, 80, 80);
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: rgb(39, 39, 39);
+}
+
+.flow-right {
+  float:right;
+}
+
+header h1{
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: rgb(207, 158, 253);
+}
+
+h2 {
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+  margin-bottom: 0px;
+  color: rgb(126, 126, 255);
+  font-weight: 700;
+}
+
+p {
+  display: block;
+  word-wrap: break-word;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+  margin-left: 40%;
+  margin-bottom: 0.1rem;
+  border-radius: 100px;
+  width: 20%;
+  height: 20%;
+  border: 2.5px solid white;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+}
+
+.group {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(80, 80, 80);
+  margin: 4% 10% 0;
+  border-radius: 5px;
+}
+
+.group div {
+  margin: 5%;
+}
+
+.group h2 {
+  margin-top: 0;
+  color: rgb(207, 158, 253);
+}
+
+.user {
+  font-weight: 100;
+  background-color: rgb(126, 126, 255);
+  padding: 3px;
+  margin-left: 1.5rem;
+}
+
+button {
+  background-color: rgb(101, 101, 255); /* Green */
+  border: none;
+  color: white;
+  padding: 13px 85px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.searchbar {
+  color: white;
+  background-color: rgb(80, 80, 80);
+  margin: 4% 10% 0;
+  border-radius: 5px;
+  padding: 10px 0px;
+}
+
+.searchbar input{
+  width: 80%;
+  padding: 6px 0;
+  margin-left: 20px;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.searchbar button{
+  padding: 5px;
+}
+
+.searchbar label{
+  margin-left: 10px;
+}
+
+.material-icons {
+  position: relative;
+  top: 5px;
+}
+
+footer .container, label{
+  visibility: hidden;
+}
+
+.games,
+.about {
+  flex-direction: column;
+  display: flex;
+  color: white;
+  background-color: rgb(80, 80, 80);
+  margin: 4% 10% 0;
+  border-radius: 5px;
+  font-size: 1.25rem;
+}
+
+.games:last-child, .group:last-child{
+  margin-bottom: 10rem;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+@media (min-width: 992px) {
+  h1 {
+    text-align: left;
+  }
+
+  .group {
+    flex-direction: row;
+  }
+
+  .column{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-top: 3em;
+  }
+
+  .pic_user {
+    margin-left: 3rem;
+  }
+
+  .profile {
+    margin-top: 3rem;
+    width: 40%;
+    height: auto;
+    margin-left: 5%;
+  }
+
+  .about, .games{
+    margin-left: 0px;
+  }
+
+  footer .container {
+    visibility: visible;
+  }
+
+  footer {
+    color: white;
+    background-color: rgb(80, 80, 80);
+    border-radius: 5px;
+    margin-top: 85px;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    color: rgb(101, 101, 255);
+  }
+
+  footer p {
+    margin: 2px;
+    line-height: 1.25;
+  }
+
+  footer p:last-of-type {
+    padding-top: 8px;
+  }
+}
+
+

@@ -1,0 +1,21 @@
+body {
+  background-color: white;
+}
+
+header {
+  text-align: center;
+  font-size: large;
+  color: rgb(82, 82, 255);
+  border: 2px solid #000000;
+}
+
+section {
+  margin-left: 100px;
+  margin-right: 75px;
+  line-height: 1.5;
+  background-color: rgb(245, 245, 245);
+  padding-top: 15px;
+  padding-left: 13px;
+  padding-right:13px;
+  border-radius: 15px;
+}
