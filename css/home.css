@@ -1,6 +1,5 @@
 body{
   background-color: #333;
-
 }
 
 body::after {
@@ -44,6 +43,10 @@ nav li a:hover {
   float:right;
 }
 
+header h1{
+  margin: auto;
+  text-align: center;
+}
 
 h1 {
   text-align: center;
@@ -77,7 +80,7 @@ p {
   border: 2.5px solid white;
 }
 
-#groups {
+.groups {
   display: flex;
   flex-direction: column;
 }
@@ -85,14 +88,14 @@ p {
 .group {
   color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: rgb(80, 80, 80);
   margin: 4% 10% 0;
   border-radius: 5px;
 }
 
 .group div {
-  margin: 2%;
+  margin: 5%;
 }
 
 .group h2 {
@@ -119,7 +122,7 @@ button {
   border-radius: 5px;
 }
 
-#searchbar {
+.searchbar {
   color: white;
   background-color: rgb(80, 80, 80);
   margin: 4% 10% 0;
@@ -127,7 +130,7 @@ button {
   padding: 10px 0px;
 }
 
-#searchbar input{
+.searchbar input{
   width: 80%;
   padding: 6px 0;
   margin-left: 20px;
@@ -135,11 +138,11 @@ button {
   border-radius: 5px;
 }
 
-#searchbar button{
+.searchbar button{
   padding: 5px;
 }
 
-#searchbar label{
+.searchbar label{
   margin-left: 10px;
 }
 
@@ -149,18 +152,18 @@ button {
 }
 
 footer .container, label{
-   visibility: hidden;
+  visibility: hidden;
 }
 
 .games,
 .about {
-    flex-direction: column;
-    display: flex;
-    color: white;
-    background-color: rgb(80, 80, 80);
-    margin: 4% 10% 0;
-    border-radius: 5px;
-    font-size: 1.25rem;
+  flex-direction: column;
+  display: flex;
+  color: white;
+  background-color: rgb(80, 80, 80);
+  margin: 4% 10% 0;
+  border-radius: 5px;
+  font-size: 1.25rem;
 }
 
 .games:last-child, .group:last-child{
@@ -177,6 +180,10 @@ footer .container, label{
 @media (min-width: 992px) {
   h1 {
     text-align: left;
+  }
+
+  .group {
+    flex-direction: row;
   }
 
   .column{
@@ -200,32 +207,32 @@ footer .container, label{
   .about, .games{
     margin-left: 0px;
   }
-  
-   footer .container {
+
+  footer .container {
     visibility: visible;
   }
-  
+
   footer {
     color: white;
     background-color: rgb(80, 80, 80);
     border-radius: 5px;
     margin-top: 85px;
   }
-  
+
   footer a {
     color: white;
     text-decoration: none;
   }
-  
+
   footer a:hover {
     color: rgb(101, 101, 255);
   }
-  
+
   footer p {
     margin: 2px;
     line-height: 1.25;
   }
-  
+
   footer p:last-of-type {
     padding-top: 8px;
   }
