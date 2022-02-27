@@ -7,3 +7,24 @@ export default function SearchBar() {
     </form>
   );
 }
+
+const search = () => {
+  const searchbox = document.getElementById("search-item").value.toUpperCase();
+  const storeitems = document.getElementById("group")
+  const game = document.querySelectorAll("group")
+  const gname = document.getElementsByTagName("h2")
+
+  for (var i = 0; i < gname.length; i++) {
+      let match = game[i].getElementsByTagName('h2')[0];
+
+      if (match) {
+          let textvalue = match.textContent || match.innerHTML
+
+          if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
+              game[i].style.display = "";
+          } else {
+              game[i].style.display = "none";
+          }
+      }
+  }
+}
