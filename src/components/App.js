@@ -7,12 +7,12 @@ import CreateGroup from './GroupCreator';
 
 function App(props) {
   const [groups, setGroups] = useState(props.groups);
-  console.log(groups)
 
   const addGroup = (newGroup) => {
-    let groupCopy = groups.push(newGroup)
+    let groupCopy = [...groups];
+    groupCopy.push(newGroup);
+    console.log(groupCopy);
     setGroups(groupCopy);
-    console.log(groups);
   }
 
   return (

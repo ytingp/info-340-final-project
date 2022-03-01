@@ -23,6 +23,7 @@ export default function CreateGroup(props) {
     };
 
     const addGame = (event) => {
+        event.preventDefault();
         console.log(newGroup);
         if(gameName != null && message != null && numPlayers != null && consoleName != null && time != null && amPM != null && timeZone != null) {
             props.addGroup(newGroup);
