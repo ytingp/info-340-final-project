@@ -177,10 +177,14 @@ footer .container, label{
   width: 20%;
 }
 
+.addGame {
+  background-color: rgb(80, 80, 80);
+  margin: 4% 10% 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
 @media (min-width: 992px) {
-  h1 {
-    text-align: left;
-  }
 
   .group {
     flex-direction: row;

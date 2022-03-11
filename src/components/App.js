@@ -30,7 +30,7 @@ function App(props) {
     })
     console.log(groups);
 
-    function cleanup () {
+    function cleanup() {
       offFunction();
     }
 
@@ -56,7 +56,7 @@ function App(props) {
       </div>
       <section className="groups">
         <GroupList groups={groups} />
-        <CreateGroup addGroup={addGroup}/>
+        <CreateGroup addGroup={addGroup} />
       </section>
     </>
   );
