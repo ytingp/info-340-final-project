@@ -191,10 +191,14 @@ footer .container, label{
   width: 20%;
 }
 
+.addGame {
+  background-color: rgb(80, 80, 80);
+  margin: 4% 10% 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
 @media (min-width: 992px) {
-  h1 {
-    text-align: left;
-  }
 
   .group {
     flex-direction: row;
@@ -208,14 +212,14 @@ footer .container, label{
   }
 
   .pic_user {
-    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 3%;
   }
 
   .profile {
-    margin-top: 3rem;
+    margin: auto;
     width: 40%;
     height: auto;
-    margin-left: 5%;
   }
 
   .about, .games{
