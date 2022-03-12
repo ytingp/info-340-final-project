@@ -24,7 +24,15 @@ function GroupCard(props) {
 }
 
 export default function GroupList(props) {
-  let groupCards = props.groups.map((group) => {
+  let filteredData = props.groups.filter((group) => {
+    if (props.term === '') {
+      return group;
+    }
+    else {
+      return group.game.toLowerCase().includes(props.term);
+    }
+  })
+  let groupCards = filteredData.map((group) => {
     return <GroupCard key={group.game} group={group} />
   });
   return (

@@ -12,24 +12,25 @@ function GamePage(props) {
     const db = getDatabase();
 
     const [groups, setGroups] = useState(props.groups);
+    const [searchTerm, setTerm] = useState("");
 
     useEffect(() => {
         const allGroupsRef = ref(db, "allGroups");
 
         const offFunction = onValue(allGroupsRef, (snapshot) => {
-        const allGroupsObject = snapshot.val();
-        const groupKeysArray = Object.keys(allGroupsObject);
+            const allGroupsObject = snapshot.val();
+            const groupKeysArray = Object.keys(allGroupsObject);
 
-        const allGroupsArray = groupKeysArray.map((keyString) => {
-            const newGroup = allGroupsObject[keyString];
-            return newGroup;
-        });
+            const allGroupsArray = groupKeysArray.map((keyString) => {
+                const newGroup = allGroupsObject[keyString];
+                return newGroup;
+            });
 
-        setGroups(allGroupsArray);
+            setGroups(allGroupsArray);
         })
 
-        function cleanup () {
-        offFunction();
+        function cleanup() {
+            offFunction();
         }
 
         return cleanup;
@@ -49,11 +50,11 @@ function GamePage(props) {
                 <Header />
             </header>
             <div className="searchbar">
-                <SearchBar />
+                <SearchBar setTerm={setTerm} />
             </div>
             <section className="groups">
-                <GroupList groups={groups} />
-                <CreateGroup addGroup={addGroup}/>
+                <GroupList groups={groups} term={searchTerm} />
+                <CreateGroup addGroup={addGroup} />
             </section>
         </>
     )
