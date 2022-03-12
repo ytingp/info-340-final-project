@@ -56,7 +56,7 @@ h1 {
 h2 {
   margin-right: 1.5rem;
   margin-left: 1.5rem;
-  margin-bottom: 0px;
+  margin-bottom: 0.75rem;
   color: rgb(126, 126, 255);
   font-weight: 700;
 }
@@ -161,9 +161,13 @@ footer .container, label{
   display: flex;
   color: white;
   background-color: rgb(80, 80, 80);
-  margin: 4% 10% 0;
+  margin: 10% 10% 2%;
   border-radius: 5px;
   font-size: 1.25rem;
+}
+
+.ul {
+  list-style-type: none;
 }
 
 .games:last-child, .group:last-child{

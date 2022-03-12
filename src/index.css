@@ -56,7 +56,7 @@ h1 {
 h2 {
   margin-right: 1.5rem;
   margin-left: 1.5rem;
-  margin-bottom: 0px;
+  margin-bottom: 0.755rem;
   color: rgb(126, 126, 255);
   font-weight: 700;
 }
@@ -98,6 +98,10 @@ p {
   margin: 5%;
 }
 
+.group div {
+  margin-top: 2%;
+  margin-bottom: 0;
+}
 .group h2 {
   margin-top: 0;
   color: rgb(207, 158, 253);
@@ -165,6 +169,16 @@ footer .container, label{
   border-radius: 5px;
   font-size: 1.25rem;
 }
+
+.games {
+  padding-bottom: 1rem;
+}
+
+.gameList {
+  margin-left: 1.5rem;
+  list-style-type: none;
+}
+
 
 .games:last-child, .group:last-child{
   margin-bottom: 10rem;

@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import SAMPLE_GROUPS from './data/groups.json'; //a sample list of GROUPS
-
+import SAMPLE_INFO from './data/profileInfo.json'; //a sample list of GROUPS
+import { BrowserRouter } from 'react-router-dom';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -27,7 +28,9 @@ const analytics = getAnalytics(app);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App groups={SAMPLE_GROUPS} />
+    <BrowserRouter>
+      <App groups={SAMPLE_GROUPS} info={SAMPLE_INFO} />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

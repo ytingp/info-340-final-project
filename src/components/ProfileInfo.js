@@ -1,44 +1,49 @@
 import React from 'react';
 
-function loopList(props) {
-    gameList = props.gameList
-    const games = gameList.map((game) => {
-        <li key={game}>{game}</li>
+export function ProfileInfo(props) {
+    let info = props.info
+    info = info[0]
+    console.log(info)
+    let currGames = info.currGames.map((game) => {
+       return (<li className="gameList" key={game}>{game}</li>)
     })
 
-    return(
-        <ul>{games}</ul>       
-    )
-}
+    let finishedGames = info.finishedGames.map((game) => {
+        return (<li className="gameList" key={game}>{game}</li>)
+     })
 
-export function ProfilePic(props) {
-    currGames = props.currGames
+    let wantGames = info.wantGames.map((game) => {
+        return (<li className="gameList" key={game}>{game}</li>)
+     })
+
 
     return(
-        <div class="column">
-            <div class="pic_user">
-                <img class="profile" src={props.img} alt={props.img} />
-                <h1> {props.name} </h1>
+        <div className="column">
+            <div className="pic_user">
+                <img className="profile" src={info.img} alt={info.img} />
+                <h1> {info.name} </h1>
             </div>
             <div>
-                <div class="about">
+                <div className="about">
                     <h2> About </h2>
-                    <p> {props.about}</p>
+                    <p> {info.about}</p>
                 </div>
-                <div class="games">
+                <div className="games">
                     <h2> Games I am currently playing </h2>
-                    <loopList gameList={currGame} />
+                    {currGames}
                 </div>
-                <div class="games">
+                <div className="games">
                     <h2> Games I want to play </h2>
-                    <loopList gameList={wantGames} />
+                    {wantGames}
                 </div>
-                <div class="games">
+                <div className="games">
                     <h2> Games I finished </h2>
-                    <loopList gameList={finishedGames} />
+                    {finishedGames}
                 </div>
             </div>
         </div>
 
     )
 }
+
+export default ProfileInfo;
