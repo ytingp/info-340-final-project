@@ -210,7 +210,7 @@ footer .container, label{
 }
 
 .formBox:last-of-type {
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 
 .inputBox {
@@ -245,10 +245,22 @@ nav label {
   color: white;
   margin-left: 0.5rem;
   margin-top: 1rem;
+  padding-top: 1rem;
 }
 
 nav input {
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
   display: none;
+}
+
+.alertMessage {
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: greenyellow;
+  font-size: 1.25rem;
 }
 @media (min-width: 992px) {
   .group {

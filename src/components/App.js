@@ -8,11 +8,13 @@ import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Routes, Route, Outlet, Navigate, useNavigate } from 'react-router-dom';
 import { getDatabase, ref, set as firebaseSet, onValue} from 'firebase/database';
+import { Alert } from 'react-bootstrap';
 
 function App(props) {
   const navigateTo = useNavigate();
   const [currentUser, setCurrentUser] = useState(null);
   const [info, setInfo] = useState(ProfileInfo);
+  const [alertMessage, setAlertMessage] = useState(null);
 
   // authencation 
   useEffect(() => {
@@ -53,7 +55,12 @@ function App(props) {
           "img" : imageFile
       }
 
-    firebaseSet(dataRef, newInfo);
+    firebaseSet(dataRef, newInfo)
+      .then(() => setAlertMessage("Your Profile Information Has Been Saved!"))
+      .catch((error) => {
+        setAlertMessage(error.message)
+      })
+
     const newInfoArray = [newInfo];
     setInfo(newInfoArray);
   }
@@ -65,8 +72,8 @@ function App(props) {
           <Route path="/SignIn" element={ <SignIn user={currentUser}/> } />
             <Route element={ <ProtectedPage user={currentUser} />} >
               <Route path="/Groups" element={ <GamePage groups={props.groups}/> } />
-              <Route path="/ProfileForm" element={ <ProfileForm info={info} user={currentUser} howToChangeInfo={changeInfo}/> } /> 
-              <Route path="/Profile" element={ <ProfilePage info={info} user={currentUser} /> } /> 
+              <Route path="/ProfileForm" element={ <ProfileForm info={info} user={currentUser} howToChangeInfo={changeInfo} alertMessage={alertMessage}/> } /> 
+              <Route path="/Profile" element={ <ProfilePage info={info} user={currentUser} setAlertMessage={setAlertMessage}/> } /> 
             </Route> 
           </Route>
         </Routes>

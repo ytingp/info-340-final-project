@@ -6,16 +6,14 @@ import { updateProfile } from 'firebase/auth';
 import { update } from 'firebase/database';
 
 function ProfileForm (props) {
-    let info = props.info
-    const user = props.user.displayName
+    const user = props.user.displayName;
+    const alert = props.alertMessage;
 
     const[about, setAbout] = useState("");
     const[want, setWant] = useState("");
     const[curr, setCurr] = useState("");
     const[played, setPlayed] = useState("");
     const [imageFile, setImageFile] = useState(undefined)
-    const displayName = props.user ? props.user.displayName : null;
-
     
     let initialURL = '/img/null.png'
     if(props.user && props.user.photoURL) {
@@ -32,8 +30,7 @@ function ProfileForm (props) {
             setImagePreviewUrl(URL.createObjectURL(imageFile));
         }
     }
-    console.log(imageFile)
-    console.log(imagePreviewUrl)
+    
     const handleClick =  async (event) => {
         const storage = getStorage(); //get a reference to the storage
         const newImageRef = ref(storage, "img/"+props.user.uid+".png")
@@ -43,9 +40,6 @@ function ProfileForm (props) {
         updateProfile(props.user, {photoURL: url})
 
         props.howToChangeInfo(about, want, curr, played, url);
-
-        console.log(url)
-        
     }
 
     const handleAboutChange = function(event) {
@@ -72,9 +66,10 @@ function ProfileForm (props) {
         <>
             <nav>
                 <Nav />
-                <label htmlFor="imageUploadInput" className='upload'> CHOOSE PROFIE PIC</label>
+                <label htmlFor="imageUploadInput" className='upload'>CHOOSE PROFLIE PIC</label>
                 <input type="file" name="image" id="imageUploadInput" onChange={handleChange}/>
             </nav>
+            
             <div>
                 <form className="column">
                     <div className="pic_user">
@@ -86,36 +81,40 @@ function ProfileForm (props) {
                             <label className='form'>About</label>
                             <div >
                                 <textarea 
-                                    className="inputBox" rows="5" cols="50" onChange={handleAboutChange} value={about}
+                                    className="inputBox"  placeholder="Tell us about yourself" rows="5" cols="50" onChange={handleAboutChange} value={about}
                                 ></textarea>
                             </div>
                         </div>
                         <div className="formBox">
                             <label className='form'>Games I am currently playing</label>
                             <div >
-                                <textarea className="inputBox" rows="5" cols="50" onChange={handleWantChange} value={want}
+                                <textarea className="inputBox" placeholder="Enter games" rows="5" cols="50" onChange={handleWantChange} value={want}
                                 ></textarea>
                             </div>
                         </div>
                         <div className="formBox">
                             <label className='form'>Games I want to play</label>
                             <div>
-                                <textarea className="inputBox" rows="5" cols="50" onChange={handleCurrChange} value={curr}
+                                <textarea className="inputBox" placeholder="Enter games" rows="5" cols="50" onChange={handleCurrChange} value={curr}
                                 ></textarea>
                             </div>
                         </div>
                         <div className="formBox">
                             <label className='form'> Games I finished </label>
                             <div >
-                                <textarea className="inputBox" rows="5" cols="50" onChange={handlePlayedChange} value={played}
+                                <textarea className="inputBox"  placeholder="Enter games" rows="5" cols="50" onChange={handlePlayedChange} value={played}
                                 ></textarea>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
+            {alert &&
+                <div className="alertMessage">
+                    {alert}
+                </div>
+            }
             <div className="positionCenter"> 
-               
                 <button className="buttomPadding" type="submit" onClick={handleClick}>SAVE</button>
             </div>
       </>

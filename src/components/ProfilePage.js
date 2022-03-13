@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ProfileInfo from './ProfileInfo'
 import Nav from './Nav'
-import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+
 
 function ProfilePage(props) {
     const user = props.user
+    props.setAlertMessage(null)
+    console.log(props)
     return (
         <>
             <nav>

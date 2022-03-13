@@ -18,6 +18,7 @@ export function ProfileInfo(props) {
             Photo = info.img;
         }
     
+        console.log(Photo)
     return(
         <div className="column">
             <div className="pic_user">
