@@ -21,7 +21,7 @@ function App(props) {
       if(firebaseUser) {
         setCurrentUser(firebaseUser);
       } else {  
-      setCurrentUser(null);
+        setCurrentUser(null);
       }
     })
   })
@@ -44,9 +44,8 @@ function App(props) {
   // 
   const changeInfo = function(about, want, curr, played) {
       const dataRef = ref(db, "ProfileInfo");
-      console.log(played)
       const newInfo =  {
-          "name": currentUser, 
+          "name": currentUser.displayName, 
           "about": about,
           "currGames": curr,
           "wantGames": want,
@@ -63,7 +62,7 @@ function App(props) {
     <>
       <Routes>
         <Route path="/" element={<AppLayout user={currentUser} />} >
-          <Route index element={ <SignIn /> } />
+          <Route path="/SignIn" element={ <SignIn user={currentUser}/> } />
             <Route element={ <ProtectedPage user={currentUser} />} >
               <Route path="/Groups" element={ <GamePage groups={props.groups}/> } />
               <Route path="/ProfileForm" element={ <ProfileForm info={info} user={currentUser} howToChangeInfo={changeInfo}/> } /> 
@@ -77,7 +76,7 @@ function App(props) {
 
 function ProtectedPage(props) {
   if(!props.user) {
-    return <Navigate to="/Home" />
+    return <Navigate to="/SignIn" />
   } else {
     return <Outlet />
   }

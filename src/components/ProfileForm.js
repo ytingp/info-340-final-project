@@ -44,6 +44,7 @@ function ProfileForm (props) {
         <>
             <nav>
                 <Nav />
+                <li className='edit'> <>CHOOSE PROFIE PIC</> </li>
             </nav>
             <div>
                 <form className="column">
