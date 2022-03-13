@@ -1,27 +1,20 @@
 import React from 'react';
 
 export function ProfileInfo(props) {
+    console.log(props)
     let info = props.info
-    info = info[0]
+    const user = props.user.displayName
+    console.log(user)
+    if(info.length === 1) {
+        info = info[0]
+    }
     console.log(info)
-    let currGames = info.currGames.map((game) => {
-       return (<li className="gameList" key={game}>{game}</li>)
-    })
-
-    let finishedGames = info.finishedGames.map((game) => {
-        return (<li className="gameList" key={game}>{game}</li>)
-     })
-
-    let wantGames = info.wantGames.map((game) => {
-        return (<li className="gameList" key={game}>{game}</li>)
-     })
-
 
     return(
         <div className="column">
             <div className="pic_user">
-                <img className="profile" src={info.img} alt={info.img} />
-                <h1> {info.name} </h1>
+                <img className="profile" src='img/profilepic.png' alt='img/profilepic.png' />
+                <h1> {user} </h1>
             </div>
             <div>
                 <div className="about">
@@ -30,15 +23,15 @@ export function ProfileInfo(props) {
                 </div>
                 <div className="games">
                     <h2> Games I am currently playing </h2>
-                    {currGames}
+                    <p>{info.currGames}</p>
                 </div>
                 <div className="games">
                     <h2> Games I want to play </h2>
-                    {wantGames}
+                    <p>{info.wantGames}</p>
                 </div>
                 <div className="games">
                     <h2> Games I finished </h2>
-                    {finishedGames}
+                    <p>{info.finishedGames}</p>
                 </div>
             </div>
         </div>

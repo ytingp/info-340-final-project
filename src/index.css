@@ -170,15 +170,10 @@ footer .container, label{
   font-size: 1.25rem;
 }
 
-.games {
-  padding-bottom: 1rem;
-}
-
 .gameList {
   margin-left: 1.5rem;
   list-style-type: none;
 }
-
 
 .games:last-child, .group:last-child{
   margin-bottom: 10rem;
@@ -191,6 +186,10 @@ footer .container, label{
   width: 20%;
 }
 
+.edit {
+  list-style-type: none;
+}
+
 .addGame {
   background-color: rgb(80, 80, 80);
   margin: 4% 10% 0;
@@ -198,8 +197,63 @@ footer .container, label{
   text-align: center;
 }
 
-@media (min-width: 992px) {
+.form {
+  visibility: visible;
+  color: rgb(126, 126, 255);
+  font-weight: 700;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
 
+.formBox {
+  margin-top: 1rem;
+}
+
+.formBox:last-of-type {
+  margin-bottom: 5rem;
+}
+
+.inputBox {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(80, 80, 80);
+  color: white;
+}
+
+.positionCenter {
+  text-align: center;
+}
+
+.buttomPadding {
+  margin-bottom: 3rem;
+}
+
+.modal {
+  font-size: 1.5rem;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.content {
+  width: 50%;
+  padding: 15% 10% 10% 18%; 
+  text-align: center;
+}
+
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+@media (min-width: 992px) {
   .group {
     flex-direction: row;
   }
@@ -218,12 +272,17 @@ footer .container, label{
 
   .profile {
     margin: auto;
-    width: 40%;
+    width: 30%;
     height: auto;
   }
 
   .about, .games{
     margin-left: 0px;
+    width: 100%;
+  }
+
+  .positionCenter{
+    margin-right: 2rem;
   }
 
   footer .container {
@@ -254,6 +313,8 @@ footer .container, label{
   footer p:last-of-type {
     padding-top: 8px;
   }
+
+
 }
 
 
