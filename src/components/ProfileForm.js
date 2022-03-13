@@ -92,25 +92,3 @@ function ProfileForm (props) {
 }
 
 export default ProfileForm;
-
-/*
-<Popup
-                    trigger={<button className="buttomPadding" type="submit" onClick={handleClick}>SAVE</button>}
-                    modal
-                    nested
-                >
-                 {close => (
-                    <div className="modal">
-                        <button className="close" onClick={close}>
-                        &times;
-                        </button>
-                       
-                        <div className="content">
-                            Saved Successfully!
-                        </div>
-                        <div className="actions">
-                        
-                        </div>
-                    </div>
-                    )}   
-                </Popup> */
