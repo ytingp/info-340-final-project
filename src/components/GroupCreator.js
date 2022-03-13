@@ -1,5 +1,6 @@
 'use strict';
 import React, { useState } from 'react';
+import { Alert } from 'react-bootstrap';
 
 export default function CreateGroup(props) {
 
@@ -10,11 +11,12 @@ export default function CreateGroup(props) {
     const [time, setTime] = useState(null);
     const [amPM, setAMPM] = useState(null);
     const [timeZone, setTimeZone] = useState(null);
+    const [alertMessage, setAlertMessage] = useState(null);
 
     const newGroup =
     {
         game: gameName,
-        users: ["player123"],
+        users: [props.username],
         time: time + amPM + " " + timeZone,
         platform: consoleName,
         playerCount: 1,
@@ -28,6 +30,9 @@ export default function CreateGroup(props) {
         if (gameName != null && message != null && numPlayers != null && consoleName != null && time != null && amPM != null && timeZone != null) {
             props.addGroup(newGroup);
             console.log("new group added");
+            setAlertMessage(null);
+        } else {
+            setAlertMessage("You did not fill in all of the Game Room information!");
         }
     }
 
@@ -68,9 +73,10 @@ export default function CreateGroup(props) {
                     </div>
                 </div>
 
-                <p></p>
+                <p style={{ color: 'red', background: 'white', width:'300px', textAlign: 'center', flexDirection: 'column', display: 'flex', margin: '2% 36.5% 2%'}}>{alertMessage}</p>
 
                 <button type="submit" className="btn btn-primary" onClick={addGame}>Add Game!</button>
+        
             </form>
         </div>
     );

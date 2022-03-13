@@ -54,7 +54,7 @@ function GamePage(props) {
             </div>
             <section className="groups">
                 <GroupList groups={groups} term={searchTerm} />
-                <CreateGroup addGroup={addGroup} />
+                <CreateGroup addGroup={addGroup} username={props.user.displayName}/>
             </section>
         </>
     )
