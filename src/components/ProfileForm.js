@@ -1,23 +1,51 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { useState } from 'react';
 import Nav from './Nav'
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { updateProfile } from 'firebase/auth';
+import { update } from 'firebase/database';
 
 function ProfileForm (props) {
-    console.log(props)
     let info = props.info
-    console.log(info)
-    
     const user = props.user.displayName
-    console.log(user)
+
     const[about, setAbout] = useState("");
     const[want, setWant] = useState("");
     const[curr, setCurr] = useState("");
     const[played, setPlayed] = useState("");
+    const [imageFile, setImageFile] = useState(undefined)
+    const displayName = props.user ? props.user.displayName : null;
 
-    const handleClick = function(event) {
-        console.log("clicked")
-        props.howToChangeInfo(about, want, curr, played);
+    
+    let initialURL = '/img/null.png'
+    if(props.user && props.user.photoURL) {
+        initialURL = props.user.photoURL
+    }
+
+    const [imagePreviewUrl, setImagePreviewUrl] = useState(initialURL)
+    
+    //image uploading!
+    const handleChange = (event) => {
+        if(event.target.files.length > 0 && event.target.files[0]) {
+            const imageFile = event.target.files[0]
+            setImageFile(imageFile);
+            setImagePreviewUrl(URL.createObjectURL(imageFile));
+        }
+    }
+    console.log(imageFile)
+    console.log(imagePreviewUrl)
+    const handleClick =  async (event) => {
+        const storage = getStorage(); //get a reference to the storage
+        const newImageRef = ref(storage, "img/"+props.user.uid+".png")
+        await uploadBytes(newImageRef, imageFile) //upload to storage        
+        const url = await getDownloadURL(newImageRef);
+
+        updateProfile(props.user, {photoURL: url})
+
+        props.howToChangeInfo(about, want, curr, played, url);
+
+        console.log(url)
+        
     }
 
     const handleAboutChange = function(event) {
@@ -44,12 +72,13 @@ function ProfileForm (props) {
         <>
             <nav>
                 <Nav />
-                <li className='edit'> <>CHOOSE PROFIE PIC</> </li>
+                <label htmlFor="imageUploadInput" className='upload'> CHOOSE PROFIE PIC</label>
+                <input type="file" name="image" id="imageUploadInput" onChange={handleChange}/>
             </nav>
             <div>
                 <form className="column">
                     <div className="pic_user">
-                        <img className="profile" src={info.img} alt={info.img} />
+                        <img className="profile" src={imagePreviewUrl} alt="user avatar preview"/>
                         <h1> {user} </h1>
                     </div>
                     <div className="positionCenter">
@@ -86,6 +115,7 @@ function ProfileForm (props) {
                 </form>
             </div>
             <div className="positionCenter"> 
+               
                 <button className="buttomPadding" type="submit" onClick={handleClick}>SAVE</button>
             </div>
       </>
@@ -93,3 +123,4 @@ function ProfileForm (props) {
 }
 
 export default ProfileForm;
+/*<button className="btn btn-sm btn-success" onClick={handleImageUpload}>Save to Profile</button> */

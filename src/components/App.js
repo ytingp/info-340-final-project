@@ -42,7 +42,7 @@ function App(props) {
   }, [])
 
   // 
-  const changeInfo = function(about, want, curr, played) {
+  const changeInfo = function(about, want, curr, played, imageFile) {
       const dataRef = ref(db, "ProfileInfo");
       const newInfo =  {
           "name": currentUser.displayName, 
@@ -50,7 +50,7 @@ function App(props) {
           "currGames": curr,
           "wantGames": want,
           "finishedGames": played,
-          "img" : "img/profilepic.png"
+          "img" : imageFile
       }
 
     firebaseSet(dataRef, newInfo);

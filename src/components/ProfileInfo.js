@@ -1,19 +1,27 @@
+import { connectStorageEmulator } from 'firebase/storage';
 import React from 'react';
 
 export function ProfileInfo(props) {
-    console.log(props)
     let info = props.info
     const user = props.user.displayName
-    console.log(user)
+    console.log(info)
+    let Photo = null;
+
     if(info.length === 1) {
         info = info[0]
     }
-    console.log(info)
 
+    if (!info.img) {
+        console.log(info)
+            Photo = '/img/null.png';
+        } else {
+            Photo = info.img;
+        }
+    
     return(
         <div className="column">
             <div className="pic_user">
-                <img className="profile" src='img/profilepic.png' alt='img/profilepic.png' />
+                <img className="profile" src={Photo} alt='user profile' />
                 <h1> {user} </h1>
             </div>
             <div>

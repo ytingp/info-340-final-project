@@ -39,7 +39,6 @@ nav li a:hover {
   background-color: rgb(39, 39, 39);
 }
 
-
 .flow-right {
   float:right;
 }
@@ -241,19 +240,16 @@ footer .container, label{
   text-align: center;
 }
 
-.modal > .close {
-  cursor: pointer;
-  position: absolute;
-  display: block;
-  padding: 2px 5px;
-  line-height: 20px;
-  right: -10px;
-  top: -10px;
-  font-size: 24px;
-  border-radius: 18px;
-  border: 1px solid #cfcece;
+nav label {
+  visibility: visible;
+  color: white;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
 }
 
+nav input {
+  display: none;
+}
 @media (min-width: 992px) {
   .group {
     flex-direction: row;
