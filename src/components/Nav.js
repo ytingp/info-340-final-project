@@ -10,7 +10,7 @@ export default function Nav(props) {
     <ul>
       {props.user && <>
         <li><NavLink to="/Groups">GROUPS</NavLink></li> 
-        <li className="flow-right" onClick={handleSignOut}><a>SIGN OUT</a></li>
+        <li className="flow-right" onClick={handleSignOut}><NavLink to="/">SIGN OUT</NavLink></li>
         <li className="flow-right"><NavLink to="/Profile">PROFILE</NavLink></li>
       </>} 
     </ul>
