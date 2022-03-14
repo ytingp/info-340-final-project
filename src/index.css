@@ -115,7 +115,7 @@ p {
 }
 
 button {
-  background-color: rgb(101, 101, 255); /* Green */
+  background-color: rgb(101, 101, 255);
   border: none;
   color: white;
   padding: 13px 85px;
@@ -124,6 +124,10 @@ button {
   display: inline-block;
   font-size: 16px;
   border-radius: 5px;
+}
+
+.clicked {
+  background-color: rgb(82, 82, 201);
 }
 
 .searchbar {
@@ -236,7 +240,7 @@ footer .container, label{
 
 .content {
   width: 50%;
-  padding: 15% 10% 10% 18%; 
+  padding: 15% 10% 10% 18%;
   text-align: center;
 }
 

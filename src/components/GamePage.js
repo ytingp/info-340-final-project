@@ -41,6 +41,18 @@ function GamePage(props) {
         firebasePush(allGroupsRef, newGroup); //Add to array in database
     }
 
+    //joining group
+    function handleJoin(index) {
+        let temp = Object.assign([], groups);
+        if (temp[index].playerCount < temp[index].max) {
+            temp[index].users.push(props.user.displayName);
+            temp[index].playerCount += 1;
+            setGroups(temp);
+        } else {
+            alert("The group you try to join is full.");
+        }
+    }
+
     return (
         <>
             <nav>
@@ -53,8 +65,8 @@ function GamePage(props) {
                 <SearchBar setTerm={setTerm} />
             </div>
             <section className="groups">
-                <GroupList groups={groups} term={searchTerm} />
-                <CreateGroup addGroup={addGroup} username={props.user.displayName}/>
+                <GroupList groups={groups} term={searchTerm} callback={handleJoin} />
+                <CreateGroup addGroup={addGroup} username={props.user.displayName} />
             </section>
         </>
     )
