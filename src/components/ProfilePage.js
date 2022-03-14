@@ -2,12 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ProfileInfo from './ProfileInfo'
 import Nav from './Nav'
+import {useEffect} from 'react';
 
 
 function ProfilePage(props) {
-    const user = props.user
-    props.setAlertMessage(null)
-    console.log(props)
+    const user = props.user;
+
+    
+    useEffect(() => {
+        props.setAlertMessage(null);
+    }, []);
+
+    console.log(props);
     return (
         <>
             <nav>

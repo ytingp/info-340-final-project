@@ -59,7 +59,7 @@ function App(props) {
     firebaseSet(dataRef, newInfo)
       .then(() => setAlertMessage("Your Profile Information Has Been Saved!"))
       .catch((error) => {
-        setAlertMessage(error.message)
+        setAlertMessage(error.message);
       })
 
     const newInfoArray = [newInfo];
@@ -73,7 +73,7 @@ function App(props) {
         <Route path="/" element={<AppLayout user={currentUser} />} >
           <Route index element={ <SignIn user={currentUser}/> } />
             <Route element={ <ProtectedPage user={currentUser} />} >
-              <Route path="/Groups" element={ <GamePage groups={props.groups}/> } />
+              <Route path="/Groups" element={ <GamePage groups={props.groups} user={currentUser}/> } />
               <Route path="/ProfileForm" element={ <ProfileForm info={info} user={currentUser} howToChangeInfo={changeInfo} alertMessage={alertMessage}/> } /> 
               <Route path="/Profile" element={ <ProfilePage info={info} user={currentUser} setAlertMessage={setAlertMessage}/> } /> 
             </Route> 
