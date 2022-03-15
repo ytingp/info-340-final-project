@@ -16,6 +16,7 @@ const FIREBASEUI_CONFIG = {
 
 
 function SignIn(props) {
+    console.log(props)
     const auth = getAuth();
     return(
         <div>
