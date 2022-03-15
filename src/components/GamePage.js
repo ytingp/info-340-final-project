@@ -45,9 +45,15 @@ function GamePage(props) {
     function handleJoin(index) {
         let temp = Object.assign([], groups);
         if (temp[index].playerCount < temp[index].max) {
-            temp[index].users.push(props.user.displayName);
-            temp[index].playerCount += 1;
-            setGroups(temp);
+            if (temp[index].users.includes(props.user.displayName)) {
+                alert("You already joined this group.");
+            } else {
+                temp[index].users.push(props.user.displayName);
+                temp[index].playerCount += 1;
+                setGroups(temp);
+                const allGroupsRef = ref(db, "allGroups");
+                firebaseSet(allGroupsRef, groups);
+            }
         } else {
             alert("The group you try to join is full.");
         }

@@ -71,12 +71,12 @@ p {
 .profile {
   display: flex;
   justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   margin-top: 8rem;
-  margin-left: 40%;
+  margin-left: 42%;
   margin-bottom: 0.1rem;
-  border-radius: 100px;
-  width: 20%;
-  height: 20%;
   border: 2.5px solid white;
 }
 
@@ -139,25 +139,18 @@ button {
 }
 
 .searchbar input{
-  width: 80%;
+  width: 70%;
   padding: 6px 0;
-  margin-left: 20px;
+  margin-left: 0px;
   margin-right: 15px;
   border-radius: 5px;
 }
 
-.searchbar button{
-  padding: 5px;
+.searchbar i{
+  margin-left: 30px;
 }
 
-.searchbar label{
-  margin-left: 10px;
-}
 
-.material-icons {
-  position: relative;
-  top: 5px;
-}
 
 footer .container, label{
   visibility: hidden;
@@ -267,6 +260,9 @@ nav input {
   font-size: 1.25rem;
 }
 @media (min-width: 992px) {
+  .searchbar input{
+    width: 80%;
+  }
   .group {
     flex-direction: row;
   }
@@ -279,21 +275,29 @@ nav input {
   }
 
   .pic_user {
-    margin-right: 3rem;
-    margin-top: 3%;
+    margin-top: 1.5rem;
+    margin-left: 10%;
+    margin-right: 20%;
   }
 
   .profile {
     margin: auto;
-    width: 30%;
-    height: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
   }
 
   .about, .games{
     margin-left: 0px;
+    margin-right: 10%;
     width: 100%;
+    padding: 5%;
   }
 
+  .about h2 , .games h2 {
+    margin-top: 0;
+    margin-left: 0;
+  }
   .positionCenter{
     margin-right: 2rem;
   }

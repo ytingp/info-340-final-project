@@ -11,6 +11,7 @@ import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue, se
 import { Alert } from 'react-bootstrap';
 
 function App(props) {
+  console.log(props.user)
   const navigateTo = useNavigate();
   const [currentUser, setCurrentUser] = useState(null);
   const [info, setInfo] = useState(ProfileInfo);
@@ -71,11 +72,12 @@ function App(props) {
     setInfo(newInfoArray);
   }
 
+  
   return (
     <>
       <Routes>
         <Route path="/" element={<AppLayout user={currentUser} />} >
-          <Route path="/SignIn" element={ <SignIn user={currentUser}/> } />
+          <Route index element={ <SignIn user={currentUser}/> } />
             <Route element={ <ProtectedPage user={currentUser} />} >
               <Route path="/Groups" element={ <GamePage groups={props.groups} user={currentUser}/> } />
               <Route path="/ProfileForm" element={ <ProfileForm info={info} user={currentUser} howToChangeInfo={changeInfo} alertMessage={alertMessage}/> } /> 
@@ -88,8 +90,8 @@ function App(props) {
 }
 
 function ProtectedPage(props) {
-  if(!props.user) {
-    return <Navigate to="/SignIn" />
+  if(props.user == null) {
+    return <Navigate to="/" />
   } else {
     return <Outlet />
   }
