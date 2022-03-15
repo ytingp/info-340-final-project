@@ -7,7 +7,7 @@ import Nav from './Nav'
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Routes, Route, Outlet, Navigate, useNavigate } from 'react-router-dom';
-import { getDatabase, ref, set as firebaseSet, onValue} from 'firebase/database';
+import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue, set} from 'firebase/database';
 import { Alert } from 'react-bootstrap';
 
 function App(props) {
@@ -42,10 +42,11 @@ function App(props) {
     }
     return cleanup;
   }, [])
-
-  // 
+  
+  
   const changeInfo = function(about, want, curr, played, imageFile) {
       const dataRef = ref(db, "ProfileInfo");
+
       const newInfo =  {
           "name": currentUser.displayName, 
           "about": about,
@@ -54,6 +55,11 @@ function App(props) {
           "finishedGames": played,
           "img" : imageFile
       }
+      
+      const id = currentUser.uid;
+      const profileRef = ref(db, id);
+      firebaseSet(profileRef, newInfo);
+      
 
     firebaseSet(dataRef, newInfo)
       .then(() => setAlertMessage("Your Profile Information Has Been Saved!"))
