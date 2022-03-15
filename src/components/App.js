@@ -85,7 +85,7 @@ function App(props) {
 
 function ProtectedPage(props) {
   if(props.user == null) {
-    return <Navigate to="/SignIn" />
+    return <Navigate to="/" />
   } else {
     return <Outlet />
   }
