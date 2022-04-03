@@ -59,6 +59,22 @@ function GamePage(props) {
         }
     }
 
+    //leaving group
+    function handleLeave(index) {
+        let temp = Object.assign([], groups);
+        let nameindex = temp[index].users.indexOf(props.user.displayName);
+        if (nameindex >= 0) {
+            temp[index].users.splice(nameindex, 1);
+
+                temp[index].playerCount -= 1;
+                setGroups(temp);
+                const allGroupsRef = ref(db, "allGroups");
+                firebaseSet(allGroupsRef, groups);
+        }
+        
+    }
+
+
     return (
         <>
             <nav>
@@ -71,7 +87,7 @@ function GamePage(props) {
                 <SearchBar setTerm={setTerm} />
             </div>
             <section className="groups">
-                <GroupList groups={groups} term={searchTerm} callback={handleJoin} />
+                <GroupList groups={groups} term={searchTerm} callback={handleJoin} unjoin={handleLeave} />
                 <CreateGroup addGroup={addGroup} username={props.user.displayName} />
             </section>
         </>

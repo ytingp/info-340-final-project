@@ -1,3 +1,4 @@
+import { faEyeLowVision } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 
 function GroupCard(props) {
@@ -8,16 +9,25 @@ function GroupCard(props) {
     return (<p className="user" key={user}>{user}</p>);
   });
   function handleClick() {
-    props.callback(props.index);
-    setDisable(true);
-    setText('Joined');
-    setstyle('clicked');
+    if (disable) {
+      props.unjoin(props.index);
+      setDisable(false);
+      setText('Join');
+      setstyle('');
+    } else {
+      props.callback(props.index);
+      setDisable(true);
+      setText('Leave');
+      setstyle('clicked');
+    }
+
   }
+
   return (
     <>
       <div className="group">
         <div>
-          <button className={style} disabled={disable} onClick={handleClick}>{text}</button>
+          <button className={style} onClick={handleClick}>{text}</button>
           <p>{props.group.time}</p>
           <p>{props.group.platform}</p>
           <p>{props.group.playerCount + " / " + props.group.max}</p>
@@ -42,7 +52,7 @@ export default function GroupList(props) {
     }
   })
   let groupCards = filteredData.map((group, index) => {
-    return <GroupCard key={group.game} group={group} index={index} callback={props.callback} />
+    return <GroupCard key={group.game} group={group} index={index} callback={props.callback} unjoin={props.unjoin} />
   });
   return (
     <>
